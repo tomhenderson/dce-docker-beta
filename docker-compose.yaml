@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  bake-ns-3-dce:
+    image: parthpratim27/ns-3-dce:beta
+    container_name: ns-3-dce
+    volumes:
+      - bake-data:/bake
+    tty: true
+
+volumes:
+  bake-data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ./bake
