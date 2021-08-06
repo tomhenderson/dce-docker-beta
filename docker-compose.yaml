@@ -4,8 +4,10 @@ services:
   bake-ns-3-dce:
     image: parthpratim27/ns-3-dce:beta
     container_name: ns-3-dce
+    env_file:
+    - dce.env             # DCE environment variables (Avoid changing, change only if custom glibc directory is being manipulated)
     volumes:
-      - bake-data:/bake
+      - bake-data:/home/bake   # <mount-volume>:<folder-inside-docker> (Changing this could cause problems !)
     tty: true
 
 volumes:
@@ -14,4 +16,4 @@ volumes:
     driver_opts:
       o: bind
       type: none
-      device: ./bake
+      device: ./bake      # Folder on host machine to which the docker's bake directory is mapped
