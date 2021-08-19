@@ -1,5 +1,9 @@
 # DCE Docker Build (Beta)
 
+This project was made as a part of **Google Summer of Code 2021** for the project **Direct Code Execution Modernization**
+
+## Build Steps
+
 ```
 git clone https://github.com/ParthPratim/dce-docker-beta.git
 cd dce-docker-beta
