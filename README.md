@@ -8,7 +8,7 @@ This project was made as a part of **Google Summer of Code 2021** for the projec
 git clone https://github.com/ParthPratim/dce-docker-beta.git
 cd dce-docker-beta
 sudo docker-compose up -d
-sudo docker run -it ns-3-dce /bin/bash
+sudo docker exec -it ns-3-dce /bin/bash
 cd /home/bake 
 git init
 git remote add origin https://gitlab.com/ParthPratim1/bake.git
