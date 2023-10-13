@@ -2,7 +2,7 @@ version: '3'
 
 services:
   bake-ns-3-dce:
-    image: tomhend/ns-3-dce-prague
+    image: tomhend/ns-3-dce-prague:1.0
     container_name: ns-3-dce-prague
     env_file:
     - dce.env             # DCE environment variables (Avoid changing, change only if custom glibc directory is being manipulated)
