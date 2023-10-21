@@ -4,6 +4,7 @@ services:
   bake-ns-3-dce:
     image: tomhend/ns-3-dce-prague:1.1
     container_name: ns-3-dce-prague
+    platform: linux/amd64
     env_file:
     - dce.env             # DCE environment variables (Avoid changing, change only if custom glibc directory is being manipulated)
     volumes:
