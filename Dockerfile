@@ -34,14 +34,18 @@ RUN apt-get clean && apt-get update && apt-get install -y \
  && rm -rf /var/lib/apt/lists/ \
  && apt-get update && apt-get install -y
 
-RUN add-apt-repository ppa:jblgf0/python -y \
- && apt-get update \
- && apt-get install -y python3.6 \
- && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 60
+RUN apt-get update \
+ && apt-get install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget \
+ && cd /usr/local/src \
+ && wget https://www.python.org/ftp/python/3.6.6/Python-3.6.6.tgz \
+ && tar xzf Python-3.6.6.tgz \
+ && cd Python-3.6.6 \
+ && ./configure \
+ && make \
+ && make install \
+ && update-alternatives --install /usr/local/bin/python3 python3 /usr/local/bin/python3.6 60 \
+ && cd /
 
-RUN curl https://bootstrap.pypa.io/pip/3.6/get-pip.py | python3.6
-
-RUN pip install requests && pip install distro
 RUN pip3 install requests && pip3 install distro
 
 RUN mkdir -p /bake && \
