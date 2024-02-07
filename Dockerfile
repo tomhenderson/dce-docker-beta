@@ -46,6 +46,13 @@ RUN apt-get update \
  && update-alternatives --install /usr/local/bin/python3 python3 /usr/local/bin/python3.6 60 \
  && cd /
 
+RUN apt-get install -y software-properties-common \
+ && add-apt-repository ppa:ubuntu-toolchain-r/test \
+ && apt-get update \
+ && apt-get install g++-8 -y \
+ && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 60 --slave /usr/bin/g++ g++ /usr/bin/g++-8 \ 
+ && update-alternatives --config gcc
+
 RUN pip3 install requests && pip3 install distro
 
 RUN mkdir -p /bake && \
